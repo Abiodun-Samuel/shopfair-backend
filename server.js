@@ -24,7 +24,6 @@ import adminRoutes from "./routes/adminRoutes.js";
 
 //constant
 connectDB();
-const PORT = process.env.PORT || 5000;
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -57,7 +56,7 @@ app.all("*", (req, res) => {
 
 mongoose.connection.once("open", () => {
   console.log("Connected to MongoDB");
-  app.listen(process.env.PORT || PORT, () =>
+  app.listen(process.env.PORT, () =>
     console.log(`Server running on port ${PORT}`)
   );
 });
